@@ -5,4 +5,5 @@
     <item
             android:gravity="center"
             android:drawable="@drawable/ic_vector" />
+
 </layer-list>
