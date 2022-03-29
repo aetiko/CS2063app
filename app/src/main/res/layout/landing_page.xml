@@ -68,13 +68,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="246dp"
-        android:layout_height="0dp"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="67dp"
         android:background="#BDDFF9"
         android:fontFamily="@font/poppins_medium"
         android:text="Get Started"
         android:textColor="#000000"
+        app:cornerRadius="8px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
