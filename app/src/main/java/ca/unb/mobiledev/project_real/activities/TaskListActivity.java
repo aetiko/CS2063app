@@ -36,6 +36,11 @@ public class TaskListActivity extends AppCompatActivity {
         Task taskOne;
         Task taskTwo;
         Task taskThree;
+        Task taskFive;
+        Task taskSix;
+        Task taskSeven;
+        Task taskEight;
+
         ArrayList<Task> list = new ArrayList<Task>();
 
         ImageView oneImage = new ImageView(this);
@@ -52,9 +57,23 @@ public class TaskListActivity extends AppCompatActivity {
         taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
         taskThree = taskBuilder.build();
 
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskFive = taskBuilder.build();
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskSix = taskBuilder.build();
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskSeven = taskBuilder.build();
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskEight = taskBuilder.build();
+
         list.add(taskOne);
         list.add(taskTwo);
         list.add(taskThree);
+        list.add(taskFive);
+        list.add(taskSix);
+        list.add(taskSeven);
+        list.add(taskEight);
+
 
         return list;
     }
