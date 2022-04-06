@@ -12,14 +12,18 @@
         <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/drawable/splash_background.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/layout/create_task.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/layout/create_task_page.xml" value="0.1" />
         <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/layout/landing_page.xml" value="0.2" />
+        <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/layout/task_item_layout.xml" value="0.152" />
+        <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/layout/task_list_page.xml" value="0.176" />
+        <entry key="..\:/Users/nurud/Desktop/Exodus/Project/CS2063app/app/src/main/res/menu/top_app_bar.xml" value="0.1" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.2125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/landing-page.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
