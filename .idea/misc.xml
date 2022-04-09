@@ -6,16 +6,18 @@
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_elipsesgroup.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21979166666666666" />
+        <entry key="app/src/main/res/drawable/ic_monitor.xml" value="0.20052083333333334" />
         <entry key="app/src/main/res/drawable/ic_undraw_time_management_re_tk5w_1.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_vector.xml" value="0.21979166666666666" />
+        <entry key="app/src/main/res/drawable/monitor.xml" value="0.28177083333333336" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.2125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/landing-page.xml" value="0.335" />
         <entry key="app/src/main/res/layout/landing_page.xml" value="0.20414787618617664" />
-        <entry key="app/src/main/res/layout/task_item_layout.xml" value="0.10198359558172994" />
+        <entry key="app/src/main/res/layout/task_item_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/task_list.xml" value="0.11730072463768115" />
-        <entry key="app/src/main/res/layout/task_list_page.xml" value="0.265954826789683" />
+        <entry key="app/src/main/res/layout/task_list_page.xml" value="0.12504154801669892" />
         <entry key="app/src/main/res/menu/menu_bottom_nav.xml" value="0.1" />
       </map>
     </option>

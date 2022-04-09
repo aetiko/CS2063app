@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -30,10 +31,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     // but RecyclerView gives us the flexibility to do more complex things
     // (e.g., display an image and some text).
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextView;
-        public ViewHolder(TextView v) {
+        public CardView view;
+        public ViewHolder(CardView v) {
             super(v);
-            mTextView = v;
+            view = v;
         }
     }
 
@@ -44,7 +45,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
+        CardView v = (CardView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.task_item_layout, parent, false);
 
         return new ViewHolder(v);
@@ -55,16 +56,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Task task = mDataset.get(position);
-        holder.mTextView.setText(task.getName());
-        holder.mTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent intent = new Intent(parentActivity, DetailActivity.class);
-//                intent.putExtra("Icon", task.getIcon());
-//                intent.putExtra("Title", task.getName());
-//                parentActivity.startActivity(intent);
-            }
-        });
+//        holder.mTextView.setText(task.getName());
+//        holder.mTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Intent intent = new Intent(parentActivity, DetailActivity.class);
+////                intent.putExtra("Icon", task.getIcon());
+////                intent.putExtra("Title", task.getName());
+////                parentActivity.startActivity(intent);
+//            }
+//        });
 
     }
 
