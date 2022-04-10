@@ -1,17 +1,9 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/item1"
-        android:title="Poop"
-        android:icon="@drawable/ic_vector"
-        app:showAsAction="ifRoom|withText"/>
-    <group android:id="@+id/group">
-        <item android:id="@+id/group_item1"
-            android:onClick="onGroupItemClick"
-            android:title="peep"
-            android:icon="@drawable/ic_elipsesgroup" />
-        <item android:id="@+id/group_item2"
-            android:onClick="onGroupItemClick"
-            android:title="shit"
-            android:icon="@drawable/splash_background" />
-    </group>
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/person"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_add_circle_24"
+        android:title="add task"
+        android:visible="true" />
 </menu>

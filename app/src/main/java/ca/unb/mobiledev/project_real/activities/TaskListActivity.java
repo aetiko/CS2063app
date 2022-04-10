@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 import ca.unb.mobiledev.project_real.R;
@@ -27,6 +29,9 @@ public class TaskListActivity extends AppCompatActivity {
         TaskAdapter adapter = new TaskAdapter(taskList, this);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
+
         recyclerView.setAdapter(adapter);
 
     }
