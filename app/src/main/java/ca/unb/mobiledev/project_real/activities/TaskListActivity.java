@@ -50,30 +50,23 @@ public class TaskListActivity extends AppCompatActivity {
         ImageView threeImage = new ImageView(this);
         threeImage.setImageResource(R.drawable.ic_vector);
 
-        taskBuilder = new Task.Builder("1","Do CS2026 Project",oneImage );
+        taskBuilder = new Task.Builder("1","Do CS2026 Project",oneImage,"workout" );
         taskOne = taskBuilder.build();
-        taskBuilder = new Task.Builder("2","Finish Song",twoImage );
+        taskBuilder = new Task.Builder("2","Finish Song",twoImage,"code" );
         taskTwo = taskBuilder.build();
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage,"work" );
         taskThree = taskBuilder.build();
 
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage,"read" );
         taskFive = taskBuilder.build();
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
+        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage,"health" );
         taskSix = taskBuilder.build();
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
-        taskSeven = taskBuilder.build();
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage );
-        taskEight = taskBuilder.build();
 
         list.add(taskOne);
         list.add(taskTwo);
         list.add(taskThree);
         list.add(taskFive);
         list.add(taskSix);
-        list.add(taskSeven);
-        list.add(taskEight);
-
 
         return list;
     }
