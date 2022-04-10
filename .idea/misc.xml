@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.21979166666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.26145833333333335" />
         <entry key="app/src/main/res/drawable/ic_elipsesgroup.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/ic_monitor.xml" value="0.20052083333333334" />
@@ -13,11 +14,12 @@
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.2125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/create_task.xml" value="0.18704710144927536" />
         <entry key="app/src/main/res/layout/landing-page.xml" value="0.335" />
         <entry key="app/src/main/res/layout/landing_page.xml" value="0.20414787618617664" />
         <entry key="app/src/main/res/layout/task_item_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/task_list.xml" value="0.11730072463768115" />
-        <entry key="app/src/main/res/layout/task_list_page.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/task_list_page.xml" value="0.2054366283742761" />
         <entry key="app/src/main/res/menu/menu_bottom_nav.xml" value="0.24084652503156267" />
       </map>
     </option>

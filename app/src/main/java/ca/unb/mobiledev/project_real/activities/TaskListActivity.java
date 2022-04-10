@@ -30,8 +30,6 @@ public class TaskListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
-
         recyclerView.setAdapter(adapter);
 
     }
@@ -43,8 +41,6 @@ public class TaskListActivity extends AppCompatActivity {
         Task taskThree;
         Task taskFive;
         Task taskSix;
-        Task taskSeven;
-        Task taskEight;
 
         ArrayList<Task> list = new ArrayList<Task>();
 
