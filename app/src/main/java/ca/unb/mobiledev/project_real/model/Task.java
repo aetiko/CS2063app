@@ -8,7 +8,7 @@ public class Task {
 
     private final String id;
     private final String name;
-    private final String category;
+    private final char category;
     private final ImageView icon;
 
     private Task (Builder builder) {
@@ -27,13 +27,17 @@ public class Task {
         return icon;
     }
 
+    public char getCategory() {
+        return category;
+    }
+
     public static class Builder {
         private final String id;
         private final String name;
         private final ImageView description;
-        private final String category;
+        private final char category;
 
-        public Builder(@NonNull String id, @NonNull String name, @NonNull ImageView description, @NonNull String category) {
+        public Builder(@NonNull String id, @NonNull String name, @NonNull ImageView description, @NonNull char category) {
             this.id = id;
             this.name = name;
             this.description = description;

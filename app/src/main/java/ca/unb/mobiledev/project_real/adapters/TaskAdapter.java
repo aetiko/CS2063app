@@ -2,9 +2,12 @@ package ca.unb.mobiledev.project_real.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,9 +35,17 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     // (e.g., display an image and some text).
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public CardView view;
+        public TextView taskName;
+        public ImageView icon;
+        public ImageView pill;
+
         public ViewHolder(CardView v) {
             super(v);
             view = v;
+            taskName = (TextView)v.findViewById(R.id.task_name);
+            icon = (ImageView)v.findViewById(R.id.category_icon);
+            pill = (ImageView)v.findViewById(R.id.pill);
+
         }
     }
 
@@ -56,6 +67,43 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Task task = mDataset.get(position);
+        holder.taskName.setText(task.getName());
+
+        switch (task.getCategory()){
+            case 'w':
+                holder.icon.setBackgroundResource(R.drawable.ic_monitor);
+                holder.icon.setImageResource(R.drawable.ic_monitor);
+                holder.pill.setImageResource(R.drawable.ic_work_pill);
+                Log.i("Adapter","w");
+                break;
+            case 'r':
+                holder.icon.setBackgroundResource(R.drawable.ic_book);
+                holder.icon.setImageResource(R.drawable.ic_book);
+                holder.pill.setImageResource(R.drawable.ic_reading_pill);
+                Log.i("Adapter","r");
+                break;
+            case 'c':
+                holder.icon.setBackgroundResource(R.drawable.ic_code);
+                holder.icon.setImageResource(R.drawable.ic_code);
+                holder.pill.setImageResource(R.drawable.ic_coding_pill);
+                Log.i("Adapter","c");
+                break;
+            case 'h':
+                holder.icon.setBackgroundResource(R.drawable.ic_heart);
+                holder.icon.setImageResource(R.drawable.ic_heart);
+                holder.pill.setImageResource(R.drawable.ic_wellness_pill);
+                Log.i("Adapter","h");
+                break;
+            case 'e':
+                holder.icon.setBackgroundResource(R.drawable.ic_barbell);
+                holder.icon.setImageResource(R.drawable.ic_barbell);
+                holder.pill.setImageResource(R.drawable.ic_workout_pill);
+                Log.i("Adapter","e");
+                break;
+            default:
+                Log.i("Adapter","default");
+                break;
+        }
 //        holder.mTextView.setText(task.getName());
 //        holder.mTextView.setOnClickListener(new View.OnClickListener() {
 //            @Override
