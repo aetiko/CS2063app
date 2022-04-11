@@ -51,16 +51,16 @@ public class TaskListActivity extends AppCompatActivity {
         ImageView threeImage = new ImageView(this);
         threeImage.setImageResource(R.drawable.ic_vector);
 
-        taskBuilder = new Task.Builder("1","Do CS2026 Project",oneImage,'e' );
+        taskBuilder = new Task.Builder("Do CS2026 Project",'e' );
         taskOne = taskBuilder.build();
-        taskBuilder = new Task.Builder("2","Finish Song",twoImage,'c' );
+        taskBuilder = new Task.Builder("Finish Song",'c' );
         taskTwo = taskBuilder.build();
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage,'w' );
+        taskBuilder = new Task.Builder("Smoke Weed",'w' );
         taskThree = taskBuilder.build();
 
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage,'r' );
+        taskBuilder = new Task.Builder("Smoke Weed",'r' );
         taskFive = taskBuilder.build();
-        taskBuilder = new Task.Builder("3","Smoke Weed",threeImage,'h' );
+        taskBuilder = new Task.Builder("Smoke Weed",'h' );
         taskSix = taskBuilder.build();
 
         list.add(taskOne);
