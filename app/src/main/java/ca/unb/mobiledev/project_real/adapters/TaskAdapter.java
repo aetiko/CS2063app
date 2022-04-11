@@ -1,11 +1,9 @@
 package ca.unb.mobiledev.project_real.adapters;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.media.Image;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,10 +21,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     private final static String TAG = "My Adapter";
     private final ArrayList<Task> mDataset;
     private final Activity parentActivity;
+    private final SharedPreferences sharedPreferences;
 
-    public TaskAdapter(ArrayList<Task> myDataset, Activity parentActivity) {
+    public TaskAdapter(ArrayList<Task> myDataset, Activity parentActivity, SharedPreferences sharedPreferences) {
         mDataset = myDataset;
         this.parentActivity = parentActivity;
+        this.sharedPreferences = sharedPreferences;
     }
 
     // ViewHolder represents an individual item to display. In this case

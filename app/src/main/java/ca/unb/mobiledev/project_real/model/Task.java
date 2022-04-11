@@ -9,11 +9,13 @@ import java.io.Serializable;
 public class Task implements Serializable {
 
     private final String name;
+    private final int id;
     private final char category;
 
-    private Task (Builder builder) {
-        this.name = builder.name;
-        this.category = builder.category;
+    public Task (int id, String name, char category) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
     }
 
     // Only need to include getters
@@ -26,18 +28,8 @@ public class Task implements Serializable {
         return category;
     }
 
-    public static class Builder {
-        private final String name;
-        private final char category;
-
-        public Builder(@NonNull String name, @NonNull char category) {
-            this.name = name;
-            this.category = category;
-        }
-
-        public Task build() {
-            return new Task(this);
-        }
+    public int getId() {
+        return id;
     }
 }
 
