@@ -44,16 +44,106 @@
             android:text="@string/task_name"
             android:textSize="18sp" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField"
+            android:layout_width="300dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="60dp"
+            android:hint="@string/label"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:id="@+id/id_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
 
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:text="@string/type"
             android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75">
+
+        <ImageView
+            android:id="@+id/pill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintStart_toEndOf="@+id/category_icon"
+            app:layout_constraintTop_toBottomOf="@+id/task_name"
+            app:srcCompat="@drawable/ic_coding_pill" />
+
+
+        <ImageView
+            android:id="@+id/work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintStart_toEndOf="@+id/category_icon"
+            app:layout_constraintTop_toBottomOf="@+id/task_name"
+            app:srcCompat="@drawable/ic_work_pill" />
+
+        <ImageView
+            android:id="@+id/wellness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintStart_toEndOf="@+id/category_icon"
+            app:layout_constraintTop_toBottomOf="@+id/task_name"
+            app:srcCompat="@drawable/ic_wellness_pill" />
+
+
+        <ImageView
+            android:id="@+id/reading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintStart_toEndOf="@+id/category_icon"
+            app:layout_constraintTop_toBottomOf="@+id/task_name"
+            app:srcCompat="@drawable/ic_reading_pill" />
+
+
+    </LinearLayout>
 
         <TextView
             android:id="@+id/id_category"
@@ -61,10 +151,112 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
 
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/black"
             android:text="@string/Category"
             android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="325dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="50dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75">
+
+            <ImageButton
+                android:id="@+id/pillC"
+                android:clickable="true"
+                android:onClick="codingClick"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                app:layout_constraintStart_toEndOf="@+id/category_icon"
+                app:layout_constraintTop_toBottomOf="@+id/task_name"
+                app:srcCompat="@drawable/ic_coding_pill" />
+
+
+            <ImageButton
+                android:id="@+id/workC"
+                android:clickable="true"
+                android:onClick="workClick"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                app:layout_constraintStart_toEndOf="@+id/category_icon"
+                app:layout_constraintTop_toBottomOf="@+id/task_name"
+                app:srcCompat="@drawable/ic_work_pill" />
+
+            <ImageButton
+                android:id="@+id/wellnessC"
+                android:clickable="true"
+                android:onClick="wellnessClick"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                app:layout_constraintStart_toEndOf="@+id/category_icon"
+                app:layout_constraintTop_toBottomOf="@+id/task_name"
+                app:srcCompat="@drawable/ic_wellness_pill" />
+
+
+            <ImageButton
+                android:id="@+id/readingC"
+                android:clickable="true"
+                android:onClick="readingClick"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                app:layout_constraintStart_toEndOf="@+id/category_icon"
+                app:layout_constraintTop_toBottomOf="@+id/task_name"
+                app:srcCompat="@drawable/ic_reading_pill" />
+
+            <ImageButton
+                android:id="@+id/workoutC"
+                android:clickable="true"
+                android:onClick="workOutClick"
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                app:layout_constraintStart_toEndOf="@+id/category_icon"
+                app:layout_constraintTop_toBottomOf="@+id/task_name"
+                app:srcCompat="@drawable/ic_workout_pill" />
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/task_finish"
@@ -74,7 +266,7 @@
             android:backgroundTint="@color/main_theme"
             android:textColor="@color/black"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="50dp"
             android:width="270dp"
             />
 

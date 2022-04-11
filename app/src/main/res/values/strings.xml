@@ -2,12 +2,13 @@
     <string name="app_name">project-real</string>
     <string name="today">Today</string>
     <string name="activity">Activity</string>
-    <string name="task_name">Create Task</string>
+    <string name="task_name">Task Name</string>
     <string name="type">Type</string>
     <string name="Category">Category</string>
     <string name="Finish">Finish</string>
     <string name="Cancel">Cancel</string>
-    <string name="page_title">Page Title</string>
+    <string name="page_title">Create Task</string>
+    <string name="label">Enter Task</string>
 
 
 </resources>
