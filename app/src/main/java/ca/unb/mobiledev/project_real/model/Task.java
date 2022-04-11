@@ -4,7 +4,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
 
     private final String name;
     private final char category;

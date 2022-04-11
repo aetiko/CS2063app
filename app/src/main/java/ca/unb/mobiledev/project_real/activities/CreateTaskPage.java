@@ -1,4 +1,5 @@
 package ca.unb.mobiledev.project_real.activities;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,8 @@ public class CreateTaskPage extends AppCompatActivity {
     Button finishButton;
     Button cancelButton;
     Task.Builder task;
-    String taskID;
     String taskName;
+    char category = ' ';
 
 
     @Override
@@ -36,38 +37,48 @@ public class CreateTaskPage extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         taskName = textInputLayout.toString();
+                        task = new Task.Builder(taskName, category);
+                        Task newTask = task.build();
+
+
+                        Intent intent = new Intent(CreateTaskPage.this, TaskListActivity.class);
+                        intent.putExtra("new task", newTask);
+                        startActivity(intent);
 
                     }
                 }
         );
     }
 
-
-
     public void codingClick(View v)
     {
-        Toast.makeText(this, "Coding clicked on.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Coding", Toast.LENGTH_LONG).show();
+        category = 'c';
     }
 
     public void workClick(View v)
     {
-        Toast.makeText(this, "Work clicked on", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Coding", Toast.LENGTH_LONG).show();
+        category = 'w';
     }
 
     public void wellnessClick(View v)
     {
-        Toast.makeText(this, "Wellness clicked on", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "wellness", Toast.LENGTH_LONG).show();
+        category = 'h';
     }
 
     public void readingClick(View v)
     {
-        Toast.makeText(this, "Reading Clicked on", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "reading", Toast.LENGTH_LONG).show();
+        category = 'r';
     }
 
 
     public void workOutClick(View v)
     {
-        Toast.makeText(this, "Work out clicked on.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "workout", Toast.LENGTH_LONG).show();
+        category = 'o';
     }
 
 }
