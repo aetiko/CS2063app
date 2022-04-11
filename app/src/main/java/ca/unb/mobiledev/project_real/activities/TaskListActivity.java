@@ -1,8 +1,11 @@
 package ca.unb.mobiledev.project_real.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -71,4 +74,12 @@ public class TaskListActivity extends AppCompatActivity {
 
         return list;
     }
+
+
+    public void cardClick(View v)
+    {
+        Intent intent = new Intent(TaskListActivity.this, TimerActivity.class);
+        startActivity(intent);
+    }
+
 }
