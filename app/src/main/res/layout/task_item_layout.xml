@@ -17,16 +17,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/task_name"
+        app:layout_constraintTop_toBottomOf="@+id/task_name">
 
         <ImageView
             android:id="@+id/pill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginEnd="118dp"
+            android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
             app:layout_constraintStart_toEndOf="@+id/category_icon"
@@ -37,22 +38,25 @@
             android:id="@+id/category_icon"
             android:layout_width="50dp"
             android:layout_height="47dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/task_name"
+            app:layout_constraintEnd_toStartOf="@+id/pill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_monitor" />
 
         <TextView
             android:id="@+id/task_name"
-            android:layout_width="111dp"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="89dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="1dp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="top"
             android:paddingTop="5dp"
@@ -61,20 +65,22 @@
             android:textColor="#000000"
             android:textSize="15sp"
             app:flow_verticalAlign="top"
+            app:layout_constraintBottom_toTopOf="@+id/pill"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/category_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="96dp"
+            android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="13dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.75">
+            app:layout_constraintStart_toEndOf="@+id/pill"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/taskTime"

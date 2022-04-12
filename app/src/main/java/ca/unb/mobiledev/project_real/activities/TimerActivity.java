@@ -125,7 +125,7 @@ public class TimerActivity extends Activity {
     public void onClickStop(View view)
     {
         running = false;
-        TaskListActivity.getTaskList().remove(task);
+//        TaskListActivity.removeTask(task);
         saveData();
         finish();
     }

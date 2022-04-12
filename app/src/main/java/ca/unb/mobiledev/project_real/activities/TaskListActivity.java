@@ -33,9 +33,10 @@ public class TaskListActivity extends AppCompatActivity {
     Parcelable state;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    private static ArrayList<Task> taskList;
+    static ArrayList<Task> taskList;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+    static TaskAdapter adapter;
 
     TextView currentTime;
 
@@ -43,6 +44,7 @@ public class TaskListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_list_page);
+
         Log.i("TaskList", "in create");
         currentTime = (TextView)findViewById(R.id.current_act_time);
 
@@ -88,13 +90,16 @@ public class TaskListActivity extends AppCompatActivity {
 
         }
 
-        TaskAdapter adapter = new TaskAdapter(taskList, this, sharedPreferences);
+        adapter = new TaskAdapter(taskList, this, sharedPreferences);
+
 
         recyclerView = findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
 
         FloatingActionButton floatingActionButton = findViewById(R.id.add_task_btn);
 
@@ -247,9 +252,15 @@ public class TaskListActivity extends AppCompatActivity {
 //        state = recyclerView.getLayoutManager().onSaveInstanceState();
 //    }
 //
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        recyclerView.getLayoutManager().onRestoreInstanceState(state);
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+        recyclerView.getLayoutManager().onRestoreInstanceState(state);
+    }
+
+    public static void removeTask(Task task){
+        taskList.remove(task);
+        adapter.notifyDataSetChanged();
+    }
 }

@@ -84,26 +84,26 @@ public class CreateTaskPage extends AppCompatActivity {
 
     public void workClick(View v)
     {
-        Toast.makeText(this, "Coding", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Work", Toast.LENGTH_LONG).show();
         category = 'w';
     }
 
     public void wellnessClick(View v)
     {
-        Toast.makeText(this, "wellness", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Wellness", Toast.LENGTH_LONG).show();
         category = 'h';
     }
 
     public void readingClick(View v)
     {
-        Toast.makeText(this, "reading", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Reading", Toast.LENGTH_LONG).show();
         category = 'r';
     }
 
 
     public void workOutClick(View v)
     {
-        Toast.makeText(this, "workout", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Exercise", Toast.LENGTH_LONG).show();
         category = 'o';
     }
 
