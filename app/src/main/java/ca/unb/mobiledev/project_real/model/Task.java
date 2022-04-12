@@ -12,10 +12,12 @@ public class Task implements Serializable {
     private final int id;
     private final char category;
 
+    private int seconds;
     public Task (int id, String name, char category) {
         this.id = id;
         this.name = name;
         this.category = category;
+        seconds = 0;
     }
 
     // Only need to include getters
@@ -30,6 +32,14 @@ public class Task implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
     }
 }
 

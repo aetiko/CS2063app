@@ -1,9 +1,11 @@
 package ca.unb.mobiledev.project_real.adapters;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import ca.unb.mobiledev.project_real.R;
+import ca.unb.mobiledev.project_real.activities.TimerActivity;
 import ca.unb.mobiledev.project_real.model.Task;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
@@ -36,6 +39,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public CardView view;
         public TextView taskName;
+//        public TextView taskId;
         public ImageView icon;
         public ImageView pill;
 
@@ -45,6 +49,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             taskName = (TextView)v.findViewById(R.id.task_name);
             icon = (ImageView)v.findViewById(R.id.category_icon);
             pill = (ImageView)v.findViewById(R.id.pill);
+//            taskId = (TextView)v.findViewById(R.id.task_id);
 
         }
     }
@@ -68,6 +73,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Task task = mDataset.get(position);
         holder.taskName.setText(task.getName());
+//        holder.taskId.setText(task.getId());
 
         switch (task.getCategory()){
             case 'w':
@@ -114,6 +120,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 ////                parentActivity.startActivity(intent);
 //            }
 //        });
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(parentActivity, TimerActivity.class);
+                intent.putExtra("seconds", task.getSeconds());
+                intent.putExtra("task", task);
+                parentActivity.startActivity(intent);
+            }
+        });
 
     }
 

@@ -30,10 +30,9 @@ public class TaskListActivity extends AppCompatActivity {
     Parcelable state;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    ArrayList<Task> taskList;
+    private static ArrayList<Task> taskList;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    private static Bundle mBundleRecyclerViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +44,16 @@ public class TaskListActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        loadData();
-
-
+//        editor.remove("courses");
+//
+//
 //        editor.putInt("taskCounter", 0);
 //        editor.apply();
 
+        loadData();
 
-            Task newTask = (Task)getIntent().getSerializableExtra("new task");
+
+        Task newTask = (Task)getIntent().getSerializableExtra("new task");
 
 
 
@@ -83,6 +84,10 @@ public class TaskListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static ArrayList<Task> getTaskList(){
+        return taskList;
     }
 
 //        @Override

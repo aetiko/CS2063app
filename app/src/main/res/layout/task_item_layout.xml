@@ -95,6 +95,7 @@
                 android:paddingTop="10dp"
                 android:paddingRight="15dp"
                 app:srcCompat="@drawable/ic_play" />
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

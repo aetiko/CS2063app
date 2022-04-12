@@ -1,7 +1,9 @@
 package ca.unb.mobiledev.project_real.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
 import java.util.Locale;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import android.app.Activity;
 
 import ca.unb.mobiledev.project_real.R;
+import ca.unb.mobiledev.project_real.model.Task;
 
 public class TimerActivity extends Activity {
 
@@ -22,6 +25,9 @@ public class TimerActivity extends Activity {
     // Number of seconds displayed
     // on the stopwatch.
     private int seconds = 0;
+    private Task task;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     // Is the stopwatch running?
     private boolean running;
@@ -32,59 +38,67 @@ public class TimerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        running = true;
         setContentView(R.layout.timer_layout);
+        sharedPreferences = getSharedPreferences("",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        task = (Task)this.getIntent().getSerializableExtra("task");
+        seconds = sharedPreferences.getInt(task.getId()+"",0);
 
-        if (savedInstanceState != null) {
-
-            // Get the previous state of the stopwatch
-            // if the activity has been
-            // destroyed and recreated.
-            seconds
-                    = savedInstanceState
-                    .getInt("seconds");
-            running
-                    = savedInstanceState
-                    .getBoolean("running");
-            wasRunning
-                    = savedInstanceState
-                    .getBoolean("wasRunning");
-        }
+//        if (savedInstanceState != null) {
+//
+//            // Get the previous state of the stopwatch
+//            // if the activity has been
+//            // destroyed and recreated.
+//            seconds
+//                    = savedInstanceState
+//                    .getInt("seconds");
+//            running
+//                    = savedInstanceState
+//                    .getBoolean("running");
+//            wasRunning
+//                    = savedInstanceState
+//                    .getBoolean("wasRunning");
+//        }
         runTimer();
     }
 
     // Save the state of the stopwatch
     // if it's about to be destroyed.
-    @Override
-    public void onSaveInstanceState(
-            Bundle savedInstanceState)
-    {
-        savedInstanceState
-                .putInt("seconds", seconds);
-        savedInstanceState
-                .putBoolean("running", running);
-        savedInstanceState
-                .putBoolean("wasRunning", wasRunning);
-    }
-
-    // If the activity is paused,
-    // stop the stopwatch.
+//    @Override
+//    public void onSaveInstanceState(
+//            Bundle savedInstanceState)
+//    {
+//        savedInstanceState
+//                .putInt("seconds", seconds);
+//        savedInstanceState
+//                .putBoolean("running", running);
+//        savedInstanceState
+//                .putBoolean("wasRunning", wasRunning);
+//    }
+//
+//    // If the activity is paused,
+//    // stop the stopwatch.
     @Override
     protected void onPause()
     {
         super.onPause();
-        wasRunning = running;
+        Log.i("Timer", "on pause");
+        wasRunning = true;
         running = false;
     }
-
-    // If the activity is resumed,
-    // start the stopwatch
-    // again if it was running previously.
+//
+//    // If the activity is resumed,
+//    // start the stopwatch
+//    // again if it was running previously.
     @Override
     protected void onResume()
     {
         super.onResume();
         if (wasRunning) {
+            Log.i("Timer", "on resume was running");
             running = true;
+            wasRunning = false;
         }
     }
 
@@ -104,6 +118,8 @@ public class TimerActivity extends Activity {
     public void onClickStop(View view)
     {
         running = false;
+        TaskListActivity.getTaskList().remove(task);
+        finish();
     }
 
     // Reset the stopwatch when
@@ -160,9 +176,12 @@ public class TimerActivity extends Activity {
 
                 // If running is true, increment the
                 // seconds variable.
-                if (running) {
+                if(running){
                     seconds++;
+                    editor.putInt(task.getId()+"", seconds);
+                    editor.apply();
                 }
+
 
                 // Post the code again
                 // with a delay of 1 second.
