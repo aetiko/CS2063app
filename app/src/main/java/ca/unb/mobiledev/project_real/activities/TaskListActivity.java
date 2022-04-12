@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -21,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import ca.unb.mobiledev.project_real.R;
 import ca.unb.mobiledev.project_real.adapters.TaskAdapter;
@@ -34,11 +37,14 @@ public class TaskListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    TextView currentTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_list_page);
         Log.i("TaskList", "in create");
+        currentTime = (TextView)findViewById(R.id.current_act_time);
 
 
         sharedPreferences = getSharedPreferences("", Context.MODE_PRIVATE);
@@ -55,14 +61,32 @@ public class TaskListActivity extends AppCompatActivity {
 
         Task newTask = (Task)getIntent().getSerializableExtra("new task");
 
+        if(newTask!=null){
+            int latestTime = sharedPreferences.getInt("currentTime",0);
+            int hours = latestTime / 3600;
+            int minutes = (latestTime % 3600) / 60;
+            int secs = latestTime % 60;
 
+            // Format the seconds into hours, minutes,
+            // and seconds.
+            String time
+                    = String
+                    .format(Locale.getDefault(),
+                            "%d:%02d:%02d", hours,
+                            minutes, secs);
+            currentTime.setText(time);
+            currentTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,37);
 
-            if(newTask!=null){
-                Log.i("TaskList", "Category: "+newTask.getCategory()+"");
-                Log.i("TaskList", "Id: "+newTask.getId()+"");
-                Log.i("TaskList", "Name: "+newTask.getName()+"");
-                taskList.add(newTask);
-            }
+            Log.i("TaskList", "Category: "+newTask.getCategory()+"");
+            Log.i("TaskList", "Id: "+newTask.getId()+"");
+            Log.i("TaskList", "Name: "+newTask.getName()+"");
+            taskList.add(newTask);
+        }
+        else{
+            currentTime.setText("No Activity Started");
+            currentTime.setTextSize(TypedValue.COMPLEX_UNIT_SP,23);
+
+        }
 
         TaskAdapter adapter = new TaskAdapter(taskList, this, sharedPreferences);
 

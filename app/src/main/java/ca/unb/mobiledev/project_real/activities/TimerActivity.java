@@ -1,15 +1,20 @@
 package ca.unb.mobiledev.project_real.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
+
+import java.util.ArrayList;
 import java.util.Locale;
 import android.widget.TextView;
 
 import android.app.Activity;
+
+import com.google.gson.Gson;
 
 import ca.unb.mobiledev.project_real.R;
 import ca.unb.mobiledev.project_real.model.Task;
@@ -28,6 +33,8 @@ public class TimerActivity extends Activity {
     private Task task;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
+    ArrayList<Task> taskList;
 
     // Is the stopwatch running?
     private boolean running;
@@ -119,7 +126,38 @@ public class TimerActivity extends Activity {
     {
         running = false;
         TaskListActivity.getTaskList().remove(task);
+        saveData();
         finish();
+    }
+
+    private void saveData() {
+        // method for saving the data in array list.
+        // creating a variable for storing data in
+        // shared preferences.
+        SharedPreferences sharedPreferences = getSharedPreferences("", MODE_PRIVATE);
+
+        // creating a variable for editor to
+        // store data in shared preferences.
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // creating a new variable for gson.
+        Gson gson = new Gson();
+
+        // getting data from gson and storing it in a string.
+        String json = gson.toJson(taskList);
+
+        // below line is to save data in shared
+        // prefs in the form of string.
+        editor.putString("courses", json);
+
+        editor.putInt("currentTime", seconds);
+
+        // below line is to apply changes
+        // and save data in shared prefs.
+        editor.apply();
+
+        // after saving data we are displaying a toast message.
+//        Toast.makeText(this, "Saved Array List to Shared preferences. ", Toast.LENGTH_SHORT).show();
     }
 
     // Reset the stopwatch when
@@ -178,6 +216,7 @@ public class TimerActivity extends Activity {
                 // seconds variable.
                 if(running){
                     seconds++;
+                    task.setSeconds(seconds);
                     editor.putInt(task.getId()+"", seconds);
                     editor.apply();
                 }

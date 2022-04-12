@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import ca.unb.mobiledev.project_real.R;
 import ca.unb.mobiledev.project_real.activities.TimerActivity;
@@ -39,7 +40,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public CardView view;
         public TextView taskName;
-//        public TextView taskId;
+        public TextView taskTimer;
         public ImageView icon;
         public ImageView pill;
 
@@ -49,7 +50,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             taskName = (TextView)v.findViewById(R.id.task_name);
             icon = (ImageView)v.findViewById(R.id.category_icon);
             pill = (ImageView)v.findViewById(R.id.pill);
-//            taskId = (TextView)v.findViewById(R.id.task_id);
+            taskTimer = (TextView)v.findViewById(R.id.taskTime);
 
         }
     }
@@ -73,7 +74,21 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Task task = mDataset.get(position);
         holder.taskName.setText(task.getName());
-//        holder.taskId.setText(task.getId());
+
+        //time formatting
+        int latestTime = task.getSeconds();
+        int hours = latestTime / 3600;
+        int minutes = (latestTime % 3600) / 60;
+        int secs = latestTime % 60;
+
+        // Format the seconds into hours, minutes,
+        // and seconds.
+        String time
+                = String
+                .format(Locale.getDefault(),
+                        "%d:%02d:%02d", hours,
+                        minutes, secs);
+        holder.taskTimer.setText(time);
 
         switch (task.getCategory()){
             case 'w':
