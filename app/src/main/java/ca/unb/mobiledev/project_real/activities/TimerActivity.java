@@ -34,6 +34,7 @@ public class TimerActivity extends Activity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+    TextView taskNameView;
     ArrayList<Task> taskList;
 
     // Is the stopwatch running?
@@ -52,6 +53,8 @@ public class TimerActivity extends Activity {
         task = (Task)this.getIntent().getSerializableExtra("task");
         seconds = sharedPreferences.getInt(task.getId()+"",0);
 
+        taskNameView = findViewById(R.id.taskName);
+        taskNameView.setText(task.getName());
 //        if (savedInstanceState != null) {
 //
 //            // Get the previous state of the stopwatch
@@ -130,6 +133,13 @@ public class TimerActivity extends Activity {
         finish();
     }
 
+    public void onBackArrowPressed(View v){
+        finish();
+    }
+
+    public void onBackPressed(View v){
+        finish();
+    }
     private void saveData() {
         // method for saving the data in array list.
         // creating a variable for storing data in
